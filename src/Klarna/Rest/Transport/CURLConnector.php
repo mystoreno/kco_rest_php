@@ -74,7 +74,7 @@ class CURLConnector implements ConnectorInterface
         $this->baseUrl = rtrim($baseUrl, '/');
 
         if ($userAgent === null) {
-            $userAgent = UserAgent::createDefault(['CURLConnector/' . curl_version()['version']]);
+            $userAgent = UserAgent::createDefault(['CURLConnector/' . \curl_version()['version']]);
         }
         $this->userAgent = $userAgent;
     }
@@ -235,7 +235,7 @@ class CURLConnector implements ConnectorInterface
         }
 
         $response = curl_exec($ch);
-        
+
         $errno = curl_errno($ch);
         $error = curl_error($ch);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -274,7 +274,7 @@ class CURLConnector implements ConnectorInterface
         return new static($merchantId, $sharedSecret, $baseUrl, $userAgent);
     }
 
-    
+
     /**
      * Converts raw curl headers response to array.
      *

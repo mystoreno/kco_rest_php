@@ -109,7 +109,7 @@ class UserAgent implements UserAgentInterface
         $agent = new static();
 
         if (extension_loaded('curl')) {
-            $options[] = 'curl/' . curl_version()['version'];
+            $options[] = 'curl/' . \curl_version()['version'];
         }
 
         return $agent
