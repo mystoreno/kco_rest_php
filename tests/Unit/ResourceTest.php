@@ -54,7 +54,7 @@ class ResourceTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -79,7 +79,7 @@ class ResourceTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function tearDown()
+    protected function tearDown(): void
     {
         parent::tearDown();
 
@@ -109,7 +109,7 @@ class ResourceTest extends TestCase
     {
         $r = $this->getMockForAbstractClass('Klarna\Rest\Resource', [$this->connector]);
         $this->assertEquals(null, $r->getLocation());
-        
+
         $r->setLocation('/new/location');
         $this->assertEquals('/new/location', $r->getLocation());
     }

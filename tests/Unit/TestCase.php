@@ -21,11 +21,12 @@ namespace Klarna\Rest\Tests\Unit;
 
 use Klarna\Rest\Transport\Connector;
 use Klarna\Rest\Transport\ApiResponse;
+use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * Base unit test case class.
  */
-class TestCase extends \PHPUnit_Framework_TestCase
+class TestCase extends PHPUnitTestCase
 {
     /**
      */
@@ -41,7 +42,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Sets up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->response = $this->getMockBuilder(ApiResponse::class)
             ->getMock();

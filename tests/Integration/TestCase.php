@@ -35,11 +35,11 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Sets up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->rootPath = dirname(dirname(__DIR__));
         $this->credentials = json_decode(getenv('CREDENTIALS'), true);
-        
+
         if (empty($this->credentials)) {
             $path = $this->rootPath . '/credentials.json';
             if (file_exists($path)) {

@@ -20,11 +20,12 @@
 namespace Klarna\Rest\Tests\Unit\Transport;
 
 use Klarna\Rest\Transport\UserAgent;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Unit test cases for the UserAgent class.
  */
-class UserAgentTest extends \PHPUnit_Framework_TestCase
+class UserAgentTest extends TestCase
 {
     /**
      * @var UserAgent
@@ -34,7 +35,7 @@ class UserAgentTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up the test fixtures
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->agent = new UserAgent();
     }

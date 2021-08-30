@@ -62,7 +62,7 @@ class GuzzleConnectorTest extends TestCase
     /**
      * Set up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

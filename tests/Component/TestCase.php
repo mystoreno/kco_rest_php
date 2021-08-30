@@ -25,11 +25,12 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use Klarna\Rest\Transport\Connector;
 use SebastianBergmann\PHPLOC\Log\CSV\History;
+use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 
 /**
  * Base component test case class.
  */
-class TestCase extends \PHPUnit_Framework_TestCase
+class TestCase extends PHPUnitTestCase
 {
     const USERNAME = '1234';
 
@@ -62,7 +63,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Sets up the test fixtures.
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->mock = new MockHandler();
         $this->history = [];
