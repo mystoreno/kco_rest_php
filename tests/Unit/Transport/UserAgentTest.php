@@ -50,19 +50,19 @@ class UserAgentTest extends TestCase
         $agent = UserAgent::createDefault();
         $text = $agent->__toString();
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Language/PHP_' . phpversion(),
             $text,
             'No PHP language component present'
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'OS/' . php_uname('s') . '_' . php_uname('r'),
             $text,
             'No OS component present'
         );
 
-        $this->assertContains(
+        $this->assertStringContainsString(
             'Library/' . UserAgent::NAME . '_' . UserAgent::VERSION,
             $text,
             'No Library component present',

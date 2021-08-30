@@ -152,7 +152,7 @@ JSON;
      */
     public function testDisableUndefinedSession()
     {
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'HPP Session ID is not defined'
         );

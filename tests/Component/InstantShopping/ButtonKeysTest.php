@@ -23,6 +23,7 @@ use GuzzleHttp\Psr7\Response;
 use Klarna\Rest\Transport\Method;
 use Klarna\Rest\InstantShopping\ButtonKeys;
 use Klarna\Rest\Tests\Component\ResourceTestCase;
+use RuntimeException;
 
 /**
  * Component test cases for the Instant Shopping Button Keys resource.
@@ -87,7 +88,7 @@ JSON;
     "disabled": true
 }
 JSON;
-        
+
         $this->mock->append(
             new Response(
                 200,
@@ -101,7 +102,7 @@ JSON;
 
         $this->assertEquals('123-key', $data['button_key']);
         $this->assertTrue($data['disabled']);
-        
+
         $request = $this->mock->getLastRequest();
         $this->assertEquals(Method::PUT, $request->getMethod());
         $this->assertEquals(
@@ -109,7 +110,7 @@ JSON;
             $request->getUri()->getPath()
         );
         $this->assertEquals('{"data":"sent in"}', strval($request->getBody()));
-        
+
 
         $this->assertAuthorization($request);
     }
@@ -129,7 +130,7 @@ JSON;
     "disabled": true
 }
 JSON;
-        
+
         $this->mock->append(
             new Response(
                 200,
@@ -144,7 +145,7 @@ JSON;
         $this->assertEquals('123-key', $button['button_key']);
         $this->assertEquals('123-key', $button->getId());
         $this->assertTrue($button['disabled']);
-        
+
         $request = $this->mock->getLastRequest();
         $this->assertEquals(Method::GET, $request->getMethod());
         $this->assertEquals(
@@ -155,11 +156,9 @@ JSON;
         $this->assertAuthorization($request);
     }
 
-    /**
-     * @expectedException RuntimeException
-     */
     public function testRetrieveException()
     {
+        $this->expectException(RuntimeException::class);
         $button = new ButtonKeys($this->connector);
         $button->retrieve();
     }

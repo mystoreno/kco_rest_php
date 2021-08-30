@@ -131,7 +131,7 @@ class CaptureTest extends TestCase
         $capture = new Capture($this->connector, '/orders/1', '2');
         $capture['data'] = 'is overwritten';
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 204'
         );
@@ -166,7 +166,7 @@ class CaptureTest extends TestCase
         $capture = new Capture($this->connector, '/orders/1', '2');
         $capture['data'] = 'is overwritten';
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected Content-Type header received: text/plain'
         );
@@ -227,10 +227,10 @@ class CaptureTest extends TestCase
         $this->response->expects($this->any())
             ->method('getStatus')
             ->will($this->returnValue('204'));
-        
+
         $capture = new Capture($this->connector, '/orders/1');
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 204'
         );
@@ -260,7 +260,7 @@ class CaptureTest extends TestCase
 
         $capture = new Capture($this->connector, '/orders/1');
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Response is missing a Location header'
         );
@@ -318,7 +318,7 @@ class CaptureTest extends TestCase
 
         $capture = new Capture($this->connector, '/orders/1', '2');
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 200'
         );
@@ -377,7 +377,7 @@ class CaptureTest extends TestCase
 
         $capture = new Capture($this->connector, '/orders/1', '2');
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 200'
         );
@@ -431,7 +431,7 @@ class CaptureTest extends TestCase
 
         $capture = new Capture($this->connector, '/orders/1', '2');
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 200'
         );

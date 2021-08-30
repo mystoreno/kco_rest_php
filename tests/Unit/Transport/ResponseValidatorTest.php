@@ -96,7 +96,7 @@ class ResponseValidatorTest extends TestCase
      */
     public function testGetLocationException()
     {
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Response is missing a Location header'
         );
@@ -147,7 +147,7 @@ class ResponseValidatorTest extends TestCase
      */
     public function testContentTypeMissingException()
     {
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Response is missing a Content-Type header'
         );
@@ -167,7 +167,7 @@ class ResponseValidatorTest extends TestCase
             ->with('Content-Type')
             ->will($this->returnValue(['text/plain']));
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected Content-Type header received: text/plain'
         );
@@ -217,7 +217,7 @@ class ResponseValidatorTest extends TestCase
             ->method('getStatus')
             ->will($this->returnValue('201'));
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 201'
         );
@@ -236,7 +236,7 @@ class ResponseValidatorTest extends TestCase
             ->method('getStatus')
             ->will($this->returnValue('200'));
 
-        $this->setExpectedException(
+        $this->expectException(
             'RuntimeException',
             'Unexpected response status code: 200'
         );
